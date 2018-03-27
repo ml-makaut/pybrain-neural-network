@@ -24,7 +24,7 @@ class OneNeuronNeuralNetwork:
 		self.weights = np.array([np.random.randn() for i in range(len(data[0]))])
 		self.bias = np.random.randn()
 	
-	def fit(self, data, classes, learnrate = 0.001):
+	def fit(self, data, classes, learnrate = 0.001, epochs = 10000):
 		"""
 
 		Changes the weights and bias using backpropagation
@@ -33,11 +33,12 @@ class OneNeuronNeuralNetwork:
 
 		classes = Set of classes corresponding to the data given
 
-		learnrate (default = 0.001) = Specifies the learning rate of the algorithm
-		or the rate in which cost should be brought to a minimum
+		learnrate = Specifies the learning rate of the algorithm
+		or the rate in which cost should be brought to a minimum. Default = 0.001
 
+		epochs = The number of times data should be trained. Default = 10000
 		"""
-		for a in range(10000):
+		for a in range(epochs):
 			randomindex = int(random.uniform(1, len(data)))
 			point = data[randomindex]
 			z = np.sum(point * self.weights) + self.bias
