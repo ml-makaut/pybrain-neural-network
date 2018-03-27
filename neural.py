@@ -37,9 +37,3 @@ class NoLayerNeuralNetwork:
 			pred = sigmoid(np.sum(self.weights * a) + self.bias)
 			outputs.append(int(round(pred)))
 		return outputs
-
-irisdata = np.array([[5.1, 3.5, 1.4, 0.2], [4.9, 3.0, 1.4, 0.2], [7.0, 3.2, 4.7, 1.4], [6.1, 2.9, 4.7, 1.4]])
-classes = [0, 0, 1, 1]
-nn = NoLayerNeuralNetwork(irisdata)
-nn.fit(irisdata, classes, learnrate = 0.07)
-print(nn.predict([[7.1, 3.3, 4.8, 1.35], [4.6, 3.1, 1.5, 0.2]]))
